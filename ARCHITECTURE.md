@@ -141,5 +141,49 @@ loop re-enters this exact same path autonomously, days later.
 
 ## Firestore Schema
 
-> Coming soon — detailed field-level schema for the `leads`, `runs`, and
-> `profile` collections.
+Three collections. `leads` and `runs` grow over time; `profile` is a
+single document describing ConvoSatya itself.
+
+### `leads` — one document per opportunity
+
+| Field | Type | Purpose |
+|---|---|---|
+| `name` | string | Who or what this lead is |
+| `category` | string | investor / accelerator / hackathon / event / demo_night / startup_program |
+| `stage` | string | Found -> Contacted -> Replied -> Meeting |
+| `relevance_note` | string | Gemini's reasoning for why this is a good match |
+| `sources` | array\<string\> | URLs used during research (credibility / audit trail) |
+| `contact_email` | string \| null | Email found, if any |
+| `email_sent` | boolean | Whether outreach actually went out |
+| `needs_manual_contact` | boolean | True when no verified email was found |
+| `linkedin_url` | string \| null | View-only, never automated |
+| `discovered_via` | string | "autonomous" or "founder_guided" |
+| `founder_instruction` | string \| null | The founder's original instruction, if guided |
+| `created_at` | timestamp | When first found |
+| `last_updated` | timestamp | Last change to this lead |
+| `follow_up_count` | number | How many autonomous follow-ups have fired |
+
+### `runs` — one document per agent execution (audit trail)
+
+| Field | Type | Purpose |
+|---|---|---|
+| `trigger_type` | string | scheduled_discovery / founder_guided / scheduled_followup |
+| `started_at` | timestamp | Run start |
+| `completed_at` | timestamp | Run end |
+| `leads_found` | number | New leads produced this run |
+| `leads_contacted` | number | Emails sent this run |
+| `summary` | string | Short human-readable description of what happened |
+
+### `profile` — single document describing ConvoSatya
+
+| Field | Type | Purpose |
+|---|---|---|
+| `industry` | string | Used to bias autonomous discovery |
+| `stage` | string | Startup stage, e.g. "pre-seed" |
+| `location` | string \| array | Geographic focus |
+| `goals` | array\<string\> | What kinds of opportunities to look for |
+| `keywords` | array\<string\> | Search terms for autonomous runs |
+
+**Note:** `stage`, `category`, and `discovered_via` are plain strings, not
+enums — Firestore has no enum type. Allowed values are enforced in the
+FastAPI/Pydantic layer, not the database itself.
