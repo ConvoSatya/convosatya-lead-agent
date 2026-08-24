@@ -8,7 +8,7 @@ for the **All Things Agentic Hackathon** (Taskmaster category).
  
 Manually researching investors, accelerators, hackathons, founder events,
 and demo nights — then drafting outreach and tracking replies — is slow,
-easy to lose track of, and doesn't scale for a solo founder. Opportunities
+easy to lose track of, and doesn't scale for a team of two. Opportunities
 get missed simply because nobody was tracking them in one place.
  
 ## What It Does
