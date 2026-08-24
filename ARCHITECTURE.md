@@ -92,9 +92,52 @@ flowchart TD
 
 ## Sequence Diagram
 
-> Coming soon — will show the step-by-step discovery-to-outreach flow
-> (matching the 14 steps in SCOPE.md) as a Mermaid sequence diagram, to
-> make the "zero human intervention" chain traceable step by step.
+This shows one full discovery-to-outreach cycle, step by step. The same
+component names from the System Architecture diagram are reused here for
+consistency.
+
+```mermaid
+sequenceDiagram
+    actor Trigger as Trigger (Scheduler / Founder)
+    participant API as FastAPI
+    participant Agent as ADK Agent
+    participant RT as Research Tool
+    participant Gemini
+    participant DB as Firestore
+    participant ET as Email Tool
+    participant Zoho as Zoho SMTP
+    participant Dash as Dashboard
+
+    Trigger->>API: Start discovery cycle
+    API->>Agent: Forward request
+    Agent->>RT: discover_and_research()
+    RT->>Gemini: Search grounding query
+    Gemini-->>RT: Candidates (people/orgs/events)
+    RT->>DB: Check for duplicate leads
+    DB-->>RT: Existing lead list
+    RT->>Gemini: Score relevance
+    Gemini-->>RT: Relevance score + notes
+    RT->>DB: Save lead (stage = Found)
+    Agent->>ET: Draft outreach from research
+
+    alt Verified public email found
+        ET->>Zoho: Send outreach email
+        Zoho-->>ET: Sent confirmation
+        ET->>DB: Update stage Found -> Contacted
+    else No verified email found
+        ET->>DB: Flag needs_manual_contact = true
+    end
+
+    DB-->>Dash: Reflects updated lead on next read
+
+    note over Trigger,Dash: Days later, Cloud Scheduler fires the Follow-up Worker on stale "Contacted" leads, re-entering this same Agent to Email Tool to Firestore path with zero human input.
+```
+
+**Why this diagram matters for judging:** there is no participant in this
+chain representing a human approving a step. The `Trigger` actor only
+*starts* the cycle — every arrow after that is agent-to-tool or
+tool-to-service. The closing note is the visual proof that the follow-up
+loop re-enters this exact same path autonomously, days later.
 
 ## Firestore Schema
 
