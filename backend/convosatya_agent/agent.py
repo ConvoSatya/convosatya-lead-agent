@@ -1,6 +1,6 @@
 from google.adk.agents.llm_agent import Agent
-from research_tool import discover_and_research
-from pipeline_tool import save_leads
+from .research_tool import discover_and_research
+from .pipeline_tool import save_leads
 
 root_agent = Agent(
     model='gemini-3.6-flash',
