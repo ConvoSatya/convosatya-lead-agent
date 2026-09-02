@@ -1,6 +1,6 @@
 # ConvoSatya Lead Agent
  
-An AI agent that finds and tracks real investors, accelerators, and startup events for ConvoSatya — running on its own, every day, on Google Cloud.
+An AI agent that finds and tracks real investors, accelerators, and startup events for ConvoSatya, running on its own, every day, on Google Cloud.
  
 Built for the **All Things Agentic Hackathon** (Taskmaster category).
  
