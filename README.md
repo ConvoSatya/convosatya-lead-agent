@@ -21,6 +21,9 @@ We built one AI agent on Google Cloud that:
 - Includes the original source links
 - Marks leads where contact information still needs to be found manually
 ## How we built it
+
+<img width="732" height="102" alt="image" src="https://github.com/user-attachments/assets/6268c32c-a0ba-4662-aa1a-522c0511a863" />
+
  
 We used Python and Google's Agent Development Kit (ADK) to build one agent with two tools:
  
