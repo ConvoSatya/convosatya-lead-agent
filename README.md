@@ -112,4 +112,4 @@ v1 focuses on finding and saving real opportunities automatically, every day, wi
  
 ## License
  
-MIT — see [LICENSE](./LICENSE).
+MIT - see [LICENSE](./LICENSE).
