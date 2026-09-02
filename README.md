@@ -2,7 +2,7 @@
  
 An AI agent that finds and tracks real investors, accelerators, and startup events for ConvoSatya, running on its own, every day, on Google Cloud.
  
-Built for the **All Things Agentic Hackathon** (Taskmaster category).
+Built for the **All Things Agentic Hackathon** (Taskmaster category) sponsored by Google.
 
 <img width="1418" height="730" alt="Screenshot 2026-09-02 140314" src="https://github.com/user-attachments/assets/75ad777c-9f77-4908-b275-1bdfbb0447c9" />
  
@@ -27,17 +27,7 @@ We used Python and Google's Agent Development Kit (ADK) to build one agent with 
 - A **research tool** that searches the web and evaluates opportunities
 - A **Firestore tool** that checks for duplicates and saves new leads
 Gemini returns results in a clear structure instead of one long paragraph. The agent runs on Cloud Run, and Cloud Scheduler starts it automatically every day. We use Google Cloud's built-in identity system, so there are no API keys stored anywhere in the code.
- 
-```mermaid
-flowchart LR
-    T["Cloud Scheduler (daily)"] --> A["ADK Agent on Cloud Run"]
-    A --> R["Research Tool → Gemini Search"]
-    A --> P["Pipeline Tool → Firestore"]
-    R --> P
-```
- 
-Full system diagram, sequence diagram, and Firestore schema are in [ARCHITECTURE.md](./ARCHITECTURE.md).
- 
+  
 ## Screenshots
  
 **Cloud Run — the agent deployed and live**
@@ -66,9 +56,7 @@ Full system diagram, sequence diagram, and Firestore schema are in [ARCHITECTURE
 | Scheduling | Cloud Scheduler → Cloud Run |
 | Hosting | Cloud Run |
 | Auth | Application Default Credentials — no API keys stored anywhere |
- 
-Full breakdown in [Techstack.md](./Techstack.md).
- 
+  
 ## Quickstart
  
 ```bash
