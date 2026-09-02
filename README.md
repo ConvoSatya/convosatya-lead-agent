@@ -119,11 +119,6 @@ convosatya-lead-agent/
  
 v1 focuses on finding and saving real opportunities automatically, every day, with no human involved after setup. Emailing leads and a dashboard are left for later, so we could ship a smaller system that actually works, reliably. LinkedIn automation is not included, since it goes against LinkedIn's terms — the agent only saves a public profile link for us to check manually. Full detail in [SCOPE.md](./SCOPE.md).
  
-## Security
- 
-The agent logs in using Google Cloud's built-in identity system (Application Default Credentials) instead of API keys — so there's nothing secret stored in the code or the repo. `.env` files are excluded via `.gitignore` for local development regardless.
- 
-**Known limitation:** the Cloud Run service currently allows unauthenticated requests, to keep the daily scheduler simple within the hackathon timeline. Restricting this to Cloud Scheduler only is planned next.
  
 ## License
  
