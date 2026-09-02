@@ -20,10 +20,16 @@ We built one AI agent on Google Cloud that:
 - Saves each relevant opportunity with a short explanation of why it fits ConvoSatya
 - Includes the original source links
 - Marks leads where contact information still needs to be found manually
+- 
 ## How we built it
 
-<img width="732" height="102" alt="Screenshot 2026-09-02 142545" src="https://github.com/user-attachments/assets/8c723b90-d7cd-44e1-9233-406cf6bf0da7" />
-
+```mermaid
+flowchart LR
+    S["Cloud Scheduler\n(daily trigger)"] --> A["Google ADK Agent\n(Cloud Run)"]
+    A --> R["Research Tool\n→ Gemini + Search"]
+    R --> P["Pipeline Tool\n→ Save new leads"]
+    P --> F[("Firestore")]
+```
  
 We used Python and Google's Agent Development Kit (ADK) to build one agent with two tools:
  
