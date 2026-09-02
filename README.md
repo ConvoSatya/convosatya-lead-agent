@@ -3,6 +3,8 @@
 An AI agent that finds and tracks real investors, accelerators, and startup events for ConvoSatya, running on its own, every day, on Google Cloud.
  
 Built for the **All Things Agentic Hackathon** (Taskmaster category).
+
+<img width="1418" height="730" alt="Screenshot 2026-09-02 140314" src="https://github.com/user-attachments/assets/75ad777c-9f77-4908-b275-1bdfbb0447c9" />
  
 ## Inspiration
  
