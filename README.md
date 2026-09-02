@@ -40,20 +40,20 @@ Full system diagram, sequence diagram, and Firestore schema are in [ARCHITECTURE
  
 **Cloud Run — the agent deployed and live**
  
-<!-- add screenshot: cloud run service page -->
- 
+<img width="1426" height="726" alt="Screenshot 2026-09-02 141255" src="https://github.com/user-attachments/assets/07471f41-d932-4262-a613-be0b089a83c8" />
+
 **Prompt: "Find leads for ConvoSatya"**
  
-<!-- add screenshot: prompt and response -->
- 
+<img width="1428" height="806" alt="Screenshot 2026-09-02 140959" src="https://github.com/user-attachments/assets/55401a29-7371-41c7-9d21-c6f31dce4ecf" />
+
 **Firestore — saved leads**
- 
-<!-- add screenshot: firestore -->
- 
+
+<img width="1426" height="734" alt="Screenshot 2026-09-02 141051" src="https://github.com/user-attachments/assets/105c8b47-9d02-4c07-92fe-8df9ce00495e" />
+
 **List of leads**
- 
-<!-- add screenshot: list of leads -->
- 
+
+<img width="932" height="512" alt="Screenshot 2026-09-02 141007" src="https://github.com/user-attachments/assets/b09df76f-a890-4f19-9597-79ca3580ebbb" />
+  
 ## Tech Stack
  
 | Layer | Choice |
