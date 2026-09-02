@@ -22,7 +22,7 @@ We built one AI agent on Google Cloud that:
 - Marks leads where contact information still needs to be found manually
 ## How we built it
 
-<img width="732" height="102" alt="image" src="https://github.com/user-attachments/assets/6268c32c-a0ba-4662-aa1a-522c0511a863" />
+<img width="732" height="102" alt="Screenshot 2026-09-02 142545" src="https://github.com/user-attachments/assets/8c723b90-d7cd-44e1-9233-406cf6bf0da7" />
 
  
 We used Python and Google's Agent Development Kit (ADK) to build one agent with two tools:
